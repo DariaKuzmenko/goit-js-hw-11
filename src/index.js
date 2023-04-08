@@ -41,6 +41,8 @@ async function handleSearchFormSubmit(event) {
       'beforeend',
       createPhotosCardMarkup(data.hits)
     );
+    gallery.refresh();
+
     refs.loadMoreBtn.classList.remove('is-hidden');
 
     const totalHits = data.totalHits;
@@ -73,6 +75,7 @@ async function handleLoadMoreBtnClick(event) {
       'beforeend',
       createPhotosCardMarkup(data.hits)
     );
+    gallery.refresh();
   } catch (err) {
     console.log(err);
   }
