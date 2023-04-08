@@ -1,9 +1,9 @@
 import './css/styles.css';
 import { Notify } from 'notiflix';
-import { PixabayApi } from './js/fetchPhotos';
-import { createPhotosCardMarkup } from './js/createMarkup';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { PixabayApi } from './js/fetchPhotos';
+import { createPhotosCardMarkup } from './js/createMarkup';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
