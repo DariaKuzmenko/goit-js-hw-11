@@ -2,6 +2,8 @@ import './css/styles.css';
 import { Notify } from 'notiflix';
 import { PixabayApi } from './js/fetchPhotos';
 import { createPhotosCardMarkup } from './js/createMarkup';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const refs = {
   searchForm: document.querySelector('.search-form'),
@@ -44,6 +46,13 @@ async function handleSearchFormSubmit(event) {
     const totalHits = data.totalHits;
 
     Notify.success(`Hooray! We found ${totalHits} images.`);
+
+    if (
+      refs.galleryEl.querySelectorAll('.photo-card').length >= data.totalHits
+    ) {
+      refs.loadMoreBtn.classList.add('is-hidden');
+      Notify.info("We're sorry, but you've reached the end of search results.");
+    }
   } catch (err) {
     console.log(err);
   }
@@ -68,6 +77,16 @@ async function handleLoadMoreBtnClick(event) {
     console.log(err);
   }
 }
+
+const gallery = new SimpleLightbox('.photo-card a', {
+  captions: true,
+  captionSelector: 'img',
+  captionType: 'attr',
+  captionsData: 'alt',
+  captionPosition: 'bottom',
+  captionDelay: 250,
+  docClose: true,
+});
 
 function clearSearchForm() {
   refs.galleryEl.innerHTML = '';
