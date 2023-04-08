@@ -39,7 +39,8 @@ async function handleSearchFormSubmit(event) {
       'beforeend',
       createPhotosCardMarkup(data.hits)
     );
-    loadMoreBtnEl.classList.remove('is-hidden');
+    refs.loadMoreBtn.classList.remove('is-hidden');
+
     const totalHits = data.totalHits;
 
     Notify.success(`Hooray! We found ${totalHits} images.`);
