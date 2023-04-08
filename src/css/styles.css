@@ -70,6 +70,11 @@ ol {
   display: none;
 }
 
+.button-load {
+  display: block;
+  margin: 0 auto;
+}
+
 .button-search {
   margin-left: 15px;
 }
@@ -80,8 +85,8 @@ ol {
   padding: 10px 20px;
   background-color: #681e62;
   color: #ecb893;
-  border: transparent;
-  border-radius: 10px;
+  border: none;
+  border-radius: 15px;
   text-transform: uppercase;
   cursor: pointer;
   margin-left: 10px;
